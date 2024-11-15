@@ -1,6 +1,6 @@
 export * as path from "jsr:@std/path@1.0.8";
 
-export { existsSync, getFilesList } from "jsr:@fathym/common@0.2.166/path";
+export { existsSync, getFilesList } from "jsr:@fathym/common@0.2.167/path";
 
 export { IoCContainer } from "jsr:@fathym/ioc@0.0.13";
 
