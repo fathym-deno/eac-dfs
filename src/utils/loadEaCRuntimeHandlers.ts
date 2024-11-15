@@ -9,7 +9,6 @@ import { importDFSTypescriptModule } from "./importDFSTypescriptModule.ts";
 
 export async function loadEaCRuntimeHandlers(
   logger: Logger,
-  esbuild: ESBuild,
   fileHandler: DFSFileHandler,
   filePath: string,
   dfs: EaCDistributedFileSystemDetails,
@@ -17,7 +16,6 @@ export async function loadEaCRuntimeHandlers(
 ): Promise<EaCRuntimeHandlerSet | undefined> {
   const apiModule = await importDFSTypescriptModule(
     logger,
-    esbuild,
     fileHandler,
     filePath,
     dfs,

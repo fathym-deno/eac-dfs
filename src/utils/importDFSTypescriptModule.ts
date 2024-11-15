@@ -3,7 +3,6 @@ import {
   // base64,
   DFSFileHandler,
   EaCDistributedFileSystemDetails,
-  ESBuild,
   Logger,
   path,
   toText,
@@ -11,7 +10,6 @@ import {
 
 export async function importDFSTypescriptModule(
   logger: Logger,
-  _esbuild: ESBuild | undefined,
   fileHandler: DFSFileHandler,
   filePath: string,
   dfs: EaCDistributedFileSystemDetails,

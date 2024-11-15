@@ -9,7 +9,6 @@ import { loadEaCRuntimeHandlers } from "./loadEaCRuntimeHandlers.ts";
 
 export async function loadMiddleware(
   logger: Logger,
-  esbuild: ESBuild,
   fileHandler: DFSFileHandler,
   filePath: string,
   dfs: EaCDistributedFileSystemDetails,
@@ -17,7 +16,6 @@ export async function loadMiddleware(
 ): Promise<[string, EaCRuntimeHandlerSet] | undefined> {
   const handler = await loadEaCRuntimeHandlers(
     logger,
-    esbuild,
     fileHandler,
     filePath,
     dfs,
