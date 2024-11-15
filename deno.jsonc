@@ -6,7 +6,11 @@
     "./handlers": "./src/handlers/.exports.ts",
     "./resolvers": "./src/resolvers/.exports.ts",
     "./utils": "./src/utils/.exports.ts",
-    "./workers": "./src/workers/.exports.ts"
+    "./workers": "./src/workers/.exports.ts",
+    "./workers/denokv": "./src/workers/EaCDenoKVDistributedFileSystemWorker.ts",
+    "./workers/esm": "./src/workers/EaCESMDistributedFileSystemWorker.ts",
+    "./workers/jsr": "./src/workers/EaCJSRDistributedFileSystemWorker.ts",
+    "./workers/local": "./src/workers/EaCLocalDistributedFileSystemWorker.ts"
   },
   "tasks": {
     "build": "deno task build:fmt && deno task build:lint && deno task publish:check && deno task test",
