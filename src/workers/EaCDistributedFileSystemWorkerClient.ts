@@ -48,7 +48,7 @@ export class EaCDistributedFileSystemWorkerClient extends FathymWorkerClient<
       : undefined;
   }
 
-  public async LoadAllPaths(revision: number): Promise<string[]> {
+  public async LoadAllPaths(revision: string): Promise<string[]> {
     const resp = await this.Send<
       { FilePaths: string[] },
       EaCDistributedFileSystemWorkerMessageLoadAllPathsPayload

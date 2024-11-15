@@ -9,7 +9,7 @@ export const buildFetchDFSFileHandler = (
   return {
     async GetFileInfo(
       filePath: string,
-      revision: number,
+      revision: string,
       defaultFileName?: string,
       extensions?: string[],
       useCascading?: boolean,
@@ -102,7 +102,7 @@ export const buildFetchDFSFileHandler = (
       );
     },
 
-    LoadAllPaths(_revision: number): Promise<string[]> {
+    LoadAllPaths(_revision: string): Promise<string[]> {
       throw new Deno.errors.NotSupported(
         "Retrieval of fetch paths is not supported",
       );
@@ -114,7 +114,7 @@ export const buildFetchDFSFileHandler = (
 
     RemoveFile(
       _filePath: string,
-      _revision: number,
+      _revision: string,
       _cacheDb?: Deno.Kv,
     ): Promise<void> {
       throw new Deno.errors.NotSupported("File removal not yet supported.");
@@ -122,7 +122,7 @@ export const buildFetchDFSFileHandler = (
 
     WriteFile(
       _filePath: string,
-      _revision: number,
+      _revision: string,
       _stream: ReadableStream<Uint8Array>,
       _ttlSeconds?: number,
       _headers?: Headers,

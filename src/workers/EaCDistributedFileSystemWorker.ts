@@ -121,7 +121,7 @@ export abstract class EaCDistributedFileSystemWorker extends FathymWorker<
       this.loadAllPaths = new Promise((resolve) => {
         if (this.dfsHandler) {
           this.dfsHandler
-            .LoadAllPaths(msg.Payload?.Revision ?? Date.now())
+            .LoadAllPaths(msg.Payload?.Revision ?? Date.now().toString())
             .then((paths) => {
               resolve(paths);
             });

@@ -21,7 +21,7 @@ export async function importDFSTypescriptModule(
   try {
     const file = await fileHandler.GetFileInfo(
       filePath,
-      Date.now(),
+      Date.now().toString(),
       dfs.DefaultFile,
       dfs.Extensions,
       dfs.UseCascading,

@@ -6,7 +6,7 @@ import { DenoKVFileStream } from "./DenoKVFileStream.ts";
 export async function withDFSCache(
   filePath: string,
   loadFile: () => Promise<DFSFileInfo | undefined>,
-  revision: number,
+  revision: string,
   cacheDb?: Deno.Kv,
   cacheSeconds?: number,
 ): Promise<DFSFileInfo | undefined> {

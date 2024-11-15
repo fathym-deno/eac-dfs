@@ -34,7 +34,7 @@ export const EaCJSRDistributedFileSystemHandlerResolver:
 
         const handler = buildFetchDFSFileHandler(fileRoot.href);
 
-        handler.LoadAllPaths = async (_revision: number) => {
+        handler.LoadAllPaths = async (_revision: string) => {
           const logger = await getPackageLogger(import.meta);
 
           const metaPath = `${fileRoot.href.slice(0, -1)}_meta.json`;
@@ -79,7 +79,7 @@ export const EaCJSRDistributedFileSystemHandlerResolver:
 
         GetFileInfo(
           filePath: string,
-          revision: number,
+          revision: string,
           defaultFileName?: string,
           extensions?: string[],
           useCascading?: boolean,
@@ -97,17 +97,17 @@ export const EaCJSRDistributedFileSystemHandlerResolver:
           );
         },
 
-        LoadAllPaths(revision: number) {
+        LoadAllPaths(revision: string) {
           return handler.LoadAllPaths(revision);
         },
 
-        RemoveFile(filePath: string, revision: number, cacheDb?: Deno.Kv) {
+        RemoveFile(filePath: string, revision: string, cacheDb?: Deno.Kv) {
           return handler.RemoveFile(filePath, revision, cacheDb);
         },
 
         WriteFile(
           filePath: string,
-          revision: number,
+          revision: string,
           stream: ReadableStream<Uint8Array>,
           ttlSeconds?: number,
           headers?: Headers,

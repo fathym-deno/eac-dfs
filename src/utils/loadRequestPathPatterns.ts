@@ -21,7 +21,7 @@ export async function loadRequestPathPatterns<TSetup>(
     pipeline: EaCRuntimeHandlerPipeline,
     details: TSetup,
   ) => void,
-  revision: number,
+  revision: string,
 ): Promise<PathMatch[]> {
   const allPaths = await fileHandler.LoadAllPaths(revision);
 

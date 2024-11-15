@@ -33,7 +33,7 @@ export const EaCESMDistributedFileSystemHandlerResolver:
 
       const esmDFSResolver = buildFetchDFSFileHandler(root);
 
-      esmDFSResolver.LoadAllPaths = async (_revision: number) => {
+      esmDFSResolver.LoadAllPaths = async (_revision: string) => {
         let epRoot = root;
 
         if (epRoot.startsWith("./") || epRoot.startsWith("../")) {

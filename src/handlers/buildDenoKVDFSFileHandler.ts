@@ -9,7 +9,7 @@ import { DFSFileInfo } from "./DFSFileInfo.ts";
 
 function getFullFileKey(
   rootKey: Deno.KvKey,
-  revision: number,
+  revision: string,
   filePath: string,
   segmentPath?: string,
 ) {
@@ -44,7 +44,7 @@ export const buildDenoKVDFSFileHandler = (
   return {
     async GetFileInfo(
       filePath: string,
-      revision: number,
+      revision: string,
       defaultFileName?: string,
       extensions?: string[],
       useCascading?: boolean,
@@ -117,7 +117,7 @@ export const buildDenoKVDFSFileHandler = (
       );
     },
 
-    async LoadAllPaths(revision: number): Promise<string[]> {
+    async LoadAllPaths(revision: string): Promise<string[]> {
       const filesRootKey = [...rootKey];
 
       const filesRevisionRootKey = [...filesRootKey, "Revision", revision!];
@@ -174,7 +174,7 @@ export const buildDenoKVDFSFileHandler = (
       return root;
     },
 
-    async RemoveFile(filePath: string, revision: number): Promise<void> {
+    async RemoveFile(filePath: string, revision: string): Promise<void> {
       const fullFileKey = getFullFileKey(
         rootKey,
         revision,
@@ -187,7 +187,7 @@ export const buildDenoKVDFSFileHandler = (
 
     async WriteFile(
       filePath: string,
-      revision: number,
+      revision: string,
       stream: ReadableStream<Uint8Array>,
       ttlSeconds?: number,
       headers?: Headers,

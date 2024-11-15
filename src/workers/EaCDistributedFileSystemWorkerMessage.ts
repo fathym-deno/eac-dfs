@@ -19,13 +19,13 @@ export type EaCDistributedFileSystemWorkerMessageGetFileInfoPayload = {
 
   FilePath: string;
 
-  Revision: number;
+  Revision: string;
 
   UseCascading?: boolean;
 };
 
 export type EaCDistributedFileSystemWorkerMessageLoadAllPathsPayload = {
-  Revision?: number;
+  Revision?: string;
 };
 
 export type EaCDistributedFileSystemWorkerMessageRemoveFilePayload = {
@@ -33,7 +33,7 @@ export type EaCDistributedFileSystemWorkerMessageRemoveFilePayload = {
 
   FilePath: string;
 
-  Revision: number;
+  Revision: string;
 };
 
 export type EaCDistributedFileSystemWorkerMessageWriteFilePayload = {
@@ -45,7 +45,7 @@ export type EaCDistributedFileSystemWorkerMessageWriteFilePayload = {
 
   MaxChunkSize?: number;
 
-  Revision: number;
+  Revision: string;
 
   Stream: ReadableStream<Uint8Array>;
 

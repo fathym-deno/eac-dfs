@@ -15,7 +15,7 @@ export const buildLocalDFSFileHandler = (
   return {
     async GetFileInfo(
       filePath: string,
-      revision: number,
+      revision: string,
       defaultFileName?: string,
       extensions?: string[],
       useCascading?: boolean,
@@ -91,7 +91,7 @@ export const buildLocalDFSFileHandler = (
       );
     },
 
-    async LoadAllPaths(_revision: number): Promise<string[]> {
+    async LoadAllPaths(_revision: string): Promise<string[]> {
       const dir = await getFilesList({
         Directory: root,
       });
@@ -111,7 +111,7 @@ export const buildLocalDFSFileHandler = (
 
     RemoveFile(
       _filePath: string,
-      _revision: number,
+      _revision: string,
       _cacheDb?: Deno.Kv,
     ): Promise<void> {
       throw new Deno.errors.NotSupported("File removal not yet supported.");
@@ -119,7 +119,7 @@ export const buildLocalDFSFileHandler = (
 
     WriteFile(
       _filePath: string,
-      _revision: number,
+      _revision: string,
       _stream: ReadableStream<Uint8Array>,
       _ttlSeconds?: number,
       _headers?: Headers,

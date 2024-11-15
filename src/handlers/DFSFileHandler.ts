@@ -3,7 +3,7 @@ import { DFSFileInfo } from "./DFSFileInfo.ts";
 export type DFSFileHandler = {
   GetFileInfo: (
     filePath: string,
-    revision: number,
+    revision: string,
     defaultFileName?: string,
     extensions?: string[],
     useCascading?: boolean,
@@ -11,19 +11,19 @@ export type DFSFileHandler = {
     cacheSeconds?: number,
   ) => Promise<DFSFileInfo | undefined>;
 
-  LoadAllPaths(revision: number): Promise<string[]>;
+  LoadAllPaths(revision: string): Promise<string[]>;
 
   readonly Root: string;
 
   RemoveFile(
     filePath: string,
-    revision: number,
+    revision: string,
     cacheDb?: Deno.Kv,
   ): Promise<void>;
 
   WriteFile(
     filePath: string,
-    revision: number,
+    revision: string,
     stream: ReadableStream<Uint8Array>,
     ttlSeconds?: number,
     headers?: Headers,

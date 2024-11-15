@@ -19,7 +19,7 @@ export const buildWorkerDFSFileHandler = async (
   return {
     async GetFileInfo(
       filePath: string,
-      revision: number,
+      revision: string,
       defaultFileName?: string,
       extensions?: string[],
       useCascading?: boolean,
@@ -37,7 +37,7 @@ export const buildWorkerDFSFileHandler = async (
       });
     },
 
-    async LoadAllPaths(revision: number): Promise<string[]> {
+    async LoadAllPaths(revision: string): Promise<string[]> {
       return await dfsWorkerClient.LoadAllPaths(revision);
     },
 
@@ -47,7 +47,7 @@ export const buildWorkerDFSFileHandler = async (
 
     async RemoveFile(
       filePath: string,
-      revision: number,
+      revision: string,
       cacheDb?: Deno.Kv,
     ): Promise<void> {
       await dfsWorkerClient.RemoveFile({
@@ -59,7 +59,7 @@ export const buildWorkerDFSFileHandler = async (
 
     async WriteFile(
       filePath: string,
-      revision: number,
+      revision: string,
       stream: ReadableStream<Uint8Array>,
       ttlSeconds?: number,
       headers?: Headers,
