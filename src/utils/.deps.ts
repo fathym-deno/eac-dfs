@@ -5,14 +5,14 @@ export { toText } from "jsr:@std/streams@1.0.8";
 export { concatUint8Arrays } from "jsr:@fathym/common@0.2.167";
 export { establishHeaders } from "jsr:@fathym/common@0.2.167/http";
 
-export { type ESBuild } from "jsr:@fathym/eac@0.2.4/esbuild";
-export { type EaCRuntimeContext } from "jsr:@fathym/eac@0.2.4/runtime";
-export { IS_BUILDING } from "jsr:@fathym/eac@0.2.4/runtime/config";
+export { type ESBuild } from "jsr:@fathym/eac@0.2.8/esbuild";
+export { type EaCRuntimeContext } from "jsr:@fathym/eac@0.2.8/runtime";
+export { IS_BUILDING } from "jsr:@fathym/eac@0.2.8/runtime/config";
 export {
   type EaCRuntimeHandler,
   EaCRuntimeHandlerPipeline,
   type EaCRuntimeHandlerSet,
-} from "jsr:@fathym/eac@0.2.4/runtime/pipelines";
+} from "jsr:@fathym/eac@0.2.8/runtime/pipelines";
 
 export { IoCContainer } from "jsr:@fathym/ioc@0.0.13";
 
