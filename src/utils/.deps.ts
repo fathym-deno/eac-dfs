@@ -8,14 +8,13 @@ export { establishHeaders } from "jsr:@fathym/common@0.2.166/http";
 export { type ESBuild } from "jsr:@fathym/eac@0.2.2/esbuild";
 export { type EaCRuntimeContext } from "jsr:@fathym/eac@0.2.2/runtime";
 export { IS_BUILDING } from "jsr:@fathym/eac@0.2.2/runtime/config";
-
-export { IoCContainer } from "jsr:@fathym/ioc@0.0.13";
-
 export {
   type EaCRuntimeHandler,
   EaCRuntimeHandlerPipeline,
   type EaCRuntimeHandlerSet,
-} from "../../../eac/src/runtime/pipelines/.exports.ts";
+} from "jsr:@fathym/eac@0.2.2/runtime/pipelines";
+
+export { IoCContainer } from "jsr:@fathym/ioc@0.0.13";
 
 export { type EaCDistributedFileSystemDetails } from "../dfs/.exports.ts";
 
