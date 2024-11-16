@@ -6,3 +6,4 @@ export * from "./EaCDistributedFileSystemWorkerMessageTypes.ts";
 export * from "./EaCESMDistributedFileSystemWorker.ts";
 export * from "./EaCJSRDistributedFileSystemWorker.ts";
 export * from "./EaCLocalDistributedFileSystemWorker.ts";
+export * from "./EaCRemoteDistributedFileSystemWorker.ts";

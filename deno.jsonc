@@ -10,7 +10,8 @@
     "./workers/denokv": "./src/workers/EaCDenoKVDistributedFileSystemWorker.ts",
     "./workers/esm": "./src/workers/EaCESMDistributedFileSystemWorker.ts",
     "./workers/jsr": "./src/workers/EaCJSRDistributedFileSystemWorker.ts",
-    "./workers/local": "./src/workers/EaCLocalDistributedFileSystemWorker.ts"
+    "./workers/local": "./src/workers/EaCLocalDistributedFileSystemWorker.ts",
+    "./workers/remote": "./src/workers/EaCRemoteDistributedFileSystemWorker.ts"
   },
   "tasks": {
     "build": "deno task build:fmt && deno task build:lint && deno task publish:check && deno task test",

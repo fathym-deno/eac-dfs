@@ -24,4 +24,5 @@ export {
   EaCESMDistributedFileSystemHandlerResolver,
   EaCJSRDistributedFileSystemHandlerResolver,
   EaCLocalDistributedFileSystemHandlerResolver,
+  EaCRemoteDistributedFileSystemHandlerResolver,
 } from "../resolvers/.exports.ts";
