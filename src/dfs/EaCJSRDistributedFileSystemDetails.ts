@@ -4,6 +4,8 @@ import {
 } from "./EaCDistributedFileSystemDetails.ts";
 
 export type EaCJSRDistributedFileSystemDetails = {
+  FileRoot?: string;
+
   Package: string;
 
   Version?: string;

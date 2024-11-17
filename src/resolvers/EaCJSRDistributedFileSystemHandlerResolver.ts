@@ -46,7 +46,9 @@ export const EaCJSRDistributedFileSystemHandlerResolver:
               manifest: { [filePath: string]: unknown };
             };
 
-            const filePaths = Object.keys(meta.manifest);
+            const filePaths = Object.keys(meta.manifest).filter((fp) =>
+              dfs.FileRoot ? fp.startsWith(dfs.FileRoot) : true
+            );
 
             return filePaths;
           } catch (err) {
