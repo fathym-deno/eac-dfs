@@ -49,7 +49,7 @@ export const buildLocalDFSFileHandler = (
               );
 
               if (existsSync(fullFilePath)) {
-                usedFileCheckPaths.push(fullFilePath);
+                usedFileCheckPaths.push(resolvedPath);
 
                 fileChecks.push(
                   new Promise<Deno.FsFile | undefined>((resolve) => {

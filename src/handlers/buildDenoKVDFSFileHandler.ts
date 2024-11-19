@@ -71,7 +71,7 @@ export const buildDenoKVDFSFileHandler = (
             | undefined
           >[] = [];
 
-          const usedFileCheckPaths: Deno.KvKey[] = [];
+          const usedFileCheckPaths: string[] = [];
 
           fileCheckPaths.forEach((fcp) => {
             const resolvedPath = pathResolver ? pathResolver(fcp) : fcp;
@@ -84,7 +84,7 @@ export const buildDenoKVDFSFileHandler = (
                 segmentPath,
               );
 
-              usedFileCheckPaths.push(fullFileKey);
+              usedFileCheckPaths.push(resolvedPath);
 
               fileChecks.push(fileStream.Read(fullFileKey));
             }
@@ -94,7 +94,7 @@ export const buildDenoKVDFSFileHandler = (
 
           const activeFileResp = fileResps.find((fileResp, i) => {
             if (fileResp?.Contents) {
-              finalFilePath = usedFileCheckPaths[i].join("/");
+              finalFilePath = usedFileCheckPaths[i];
             }
 
             return fileResp?.Contents;

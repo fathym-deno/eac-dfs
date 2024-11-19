@@ -40,7 +40,7 @@ export const buildFetchDFSFileHandler = (
 
           const fileChecks: Promise<Response>[] = [];
 
-          const usedFileCheckPaths: URL[] = [];
+          const usedFileCheckPaths: string[] = [];
 
           fileCheckPaths.forEach((fcp) => {
             const resolvedPath = pathResolver ? pathResolver(fcp) : fcp;
@@ -51,7 +51,7 @@ export const buildFetchDFSFileHandler = (
                   ? new URL(resolvedPath)
                   : new URL(`.${resolvedPath}`, root);
 
-                usedFileCheckPaths.push(fullFilePath);
+                usedFileCheckPaths.push(resolvedPath);
 
                 fileChecks.push(fetch(fullFilePath));
               } catch (err) {
@@ -66,7 +66,7 @@ export const buildFetchDFSFileHandler = (
 
           const activeFileResp = fileResps.find((fileResp, i) => {
             if (fileResp.ok) {
-              finalFilePath = usedFileCheckPaths[i].href;
+              finalFilePath = usedFileCheckPaths[i];
             }
 
             return fileResp.ok;
