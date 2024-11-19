@@ -67,7 +67,10 @@ export async function importDFSTypescriptModule(
         } else {
           apiUrl = `file:///${
             path.join(
-              Deno.cwd(),
+              fileHandler.Root.includes(":/") ||
+                fileHandler.Root.includes(":\\")
+                ? ""
+                : Deno.cwd(),
               fileHandler.Root,
               filePath,
             )
