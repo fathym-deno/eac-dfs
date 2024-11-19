@@ -4,6 +4,7 @@ import {
   DFSFileHandlerResolver,
   getPackageLogger,
   isEaCJSRDistributedFileSystemDetails,
+  path,
 } from "./.deps.ts";
 
 export const EaCJSRDistributedFileSystemHandlerResolver:
@@ -89,7 +90,7 @@ export const EaCJSRDistributedFileSystemHandlerResolver:
           cacheSeconds?: number,
         ) {
           return handler.GetFileInfo(
-            filePath,
+            path.join(dfs.FileRoot || "", filePath),
             revision,
             defaultFileName,
             extensions,
@@ -99,12 +100,22 @@ export const EaCJSRDistributedFileSystemHandlerResolver:
           );
         },
 
-        LoadAllPaths(revision: string) {
-          return handler.LoadAllPaths(revision);
+        async LoadAllPaths(revision: string) {
+          const allPaths = await handler.LoadAllPaths(revision);
+
+          return allPaths.map((path) =>
+            dfs.FileRoot && path.startsWith(dfs.FileRoot)
+              ? path.replace(dfs.FileRoot, "")
+              : path
+          );
         },
 
         RemoveFile(filePath: string, revision: string, cacheDb?: Deno.Kv) {
-          return handler.RemoveFile(filePath, revision, cacheDb);
+          return handler.RemoveFile(
+            path.join(dfs.FileRoot || "", filePath),
+            revision,
+            cacheDb,
+          );
         },
 
         WriteFile(
@@ -117,7 +128,7 @@ export const EaCJSRDistributedFileSystemHandlerResolver:
           cacheDb?: Deno.Kv,
         ) {
           return handler.WriteFile(
-            filePath,
+            path.join(dfs.FileRoot || "", filePath),
             revision,
             stream,
             ttlSeconds,
