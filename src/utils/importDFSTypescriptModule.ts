@@ -50,6 +50,9 @@ export async function importDFSTypescriptModule(
       //   // const apiUrl = `data:application/typescript;base64,${enc}`;
       //   apiUrl = `data:application/javascript;base64,${enc}`;
       // } else {
+
+      filePath = file.Path;
+
       if (filePath.startsWith("http://") || filePath.startsWith("https://")) {
         apiUrl = filePath;
       } else if (
