@@ -36,6 +36,8 @@ export const buildLocalDFSFileHandler = (
 
           const fileChecks: Promise<Deno.FsFile | undefined>[] = [];
 
+          const usedFileCheckPaths: string[] = [];
+
           fileCheckPaths.forEach((fcp) => {
             const resolvedPath = pathResolver ? pathResolver(fcp) : fcp;
 
@@ -47,6 +49,8 @@ export const buildLocalDFSFileHandler = (
               );
 
               if (existsSync(fullFilePath)) {
+                usedFileCheckPaths.push(fullFilePath);
+
                 fileChecks.push(
                   new Promise<Deno.FsFile | undefined>((resolve) => {
                     Deno.open(fullFilePath, {
@@ -64,7 +68,7 @@ export const buildLocalDFSFileHandler = (
 
           const activeFileResp = fileResps.find((fileResp, i) => {
             if (fileResp?.readable) {
-              finalFilePath = fileCheckPaths[i];
+              finalFilePath = usedFileCheckPaths[i];
             }
 
             return fileResp?.readable;
