@@ -89,9 +89,11 @@ export const buildDenoKVDFSFileHandler = (
           const fileResps = await Promise.all(fileChecks);
 
           const activeFileResp = fileResps.find((fileResp, i) => {
-            finalFilePath = fileCheckPaths[i];
+            if (fileResp?.Contents) {
+              finalFilePath = fileCheckPaths[i];
+            }
 
-            return fileResp;
+            return fileResp?.Contents;
           });
 
           if (activeFileResp) {
