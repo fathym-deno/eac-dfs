@@ -2,4 +2,4 @@ export {
   type EaCDetails,
   type EaCMetadataBase,
   type EaCVertexDetails,
-} from "jsr:@fathym/eac@0.2.17";
+} from "jsr:@fathym/eac@0.2.22";
