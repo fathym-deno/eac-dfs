@@ -41,7 +41,7 @@ export const buildLocalDFSFileHandler = (
 
             if (resolvedPath) {
               const fullFilePath = path.join(
-                Deno.cwd(),
+                root.includes(":/") || root.includes(":\\") ? "" : Deno.cwd(),
                 root || "",
                 resolvedPath,
               );
